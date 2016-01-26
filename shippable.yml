@@ -20,5 +20,3 @@ script:
   - mkdir -p .elasticbeanstalk
   - cp config.yml .elasticbeanstalk/
 
-after_success:
-  - eb init && eb deploy
