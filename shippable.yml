@@ -14,4 +14,4 @@ before_script:
   - mkdir -p shippable/.elasticbeanstalk
 
 script:
-  - npm start
+  - true
