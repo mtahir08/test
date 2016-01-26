@@ -8,9 +8,6 @@ env:
     - AWSAccessKeyId=AKIAJ4CQDMVOWEQPYTWA
     - secure: Q42UZbjtbTKKhLIq8ceAMI+FY9/C3WNhK9TnOMF3+Hy8VcW+RuEkXeis8q6J/wzSJd5MXqPS93CaUzxQ3L4yaJIgUSdmbbZ8nUaOMfrvHSLxtV3WFgVXfGFgO3SlhSECYhAA6UvytbPQsv7cv672e6FWEdgaIbdKRDalGK7MGabLYh6XGUaG4DGEj2sl+ytamkRneKkyeDbtDCgvN4YprNqGGcy85zvbAJBzNWgeowt6VV6Uv0Yq9Y/3asIFG9Lky4dl8We5jjd1lfosmKFSi5TsvApCOByaMWl+o8WJXvRwQNUzSxh+xWU5uSXBGRe1c79uM/4RDKTV2V0LWGOywg==
 
-before_install:
-  - SUDO=$(which sudo) && $SUDO pip install awsebcli
-
 before_script: 
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
