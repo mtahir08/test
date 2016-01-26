@@ -1,0 +1,10 @@
+branch-defaults:
+  master:
+    environment: webapptest2
+global:
+  application_name: webapptest2
+  default_ec2_keyname: zain
+  default_platform: Docker 1.7.1
+  default_region: us-west-2a
+  profile: eb-cli
+  sc: git
