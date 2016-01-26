@@ -1,2 +1,17 @@
+language: node_js
+
+node_js:
+  - 0.10.25
+
+# For xunit-file module to put results in shippable folder
+env:
+  - XUNIT_FILE=shippable/testresults/result.xml
+
+# Make folders for the reports, and create the SQL db
+before_script:
+  - mkdir -p shippable/testresults
+  - mkdir -p shippable/codecoverage
+  - mkdir -p shippable/.elasticbeanstalk
+
 script:
-  - true
+  - npm start
