@@ -1,9 +1,8 @@
 branch-defaults:
   master:
-    environment: webapptest2
+    environment: dev-env
 global:
-  application_name: webapptest2
-  default_ec2_keyname: zain
+  application_name: awsTest
   default_platform: Docker 1.7.1
   default_region: us-west-2
   profile: eb-cli
