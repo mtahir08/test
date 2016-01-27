@@ -3,10 +3,14 @@ language: node_js
 node_js:
   - 0.10.25
 
+
 env:
   global:
-    - AWSAccessKeyId=AKIAJ4CQDMVOWEQPYTWA
-    - secure: Q42UZbjtbTKKhLIq8ceAMI+FY9/C3WNhK9TnOMF3+Hy8VcW+RuEkXeis8q6J/wzSJd5MXqPS93CaUzxQ3L4yaJIgUSdmbbZ8nUaOMfrvHSLxtV3WFgVXfGFgO3SlhSECYhAA6UvytbPQsv7cv672e6FWEdgaIbdKRDalGK7MGabLYh6XGUaG4DGEj2sl+ytamkRneKkyeDbtDCgvN4YprNqGGcy85zvbAJBzNWgeowt6VV6Uv0Yq9Y/3asIFG9Lky4dl8We5jjd1lfosmKFSi5TsvApCOByaMWl+o8WJXvRwQNUzSxh+xWU5uSXBGRe1c79uM/4RDKTV2V0LWGOywg==
+    - AWSAccessKeyId=AKIAJJL2U6T3F3Y5JIGA
+    - secure: tD2cjFcQ6xqzxhBjqu2y8XIqyw5kbwd2IhhocYJYtHlBAxVATmL5VTaH8WlqKC5O5wzTujekVmhlJ5eNrmVa3kBqDxKd4Go+oELoM0crDBepSudRoVHd11ee+YRhsgCuj3tfXSR+bUJV9wBcvZBRcTwDs1Nz82zX45R3pQzMIQ0JbSTGIppXtonYCpw9yx1JUpMtOf6XwcXfnOyUKWGsE8Abj9AOZxQ0oGalEtdSbrBUIY8iwzV0j/VzijfZzRpAK23AvOZLVNlp0+JCK+5OFlSOgVn4KV9j6lFA4MpT4dBacYItXNOkLVpx5fxVfq+r6CE8YlQObv4V0nJWTf2wtw==
+    - AWSSecretKey: tD2cjFcQ6xqzxhBjqu2y8XIqyw5kbwd2IhhocYJYtHlBAxVATmL5VTaH8WlqKC5O5wzTujekVmhlJ5eNrmVa3kBqDxKd4Go+oELoM0crDBepSudRoVHd11ee+YRhsgCuj3tfXSR+bUJV9wBcvZBRcTwDs1Nz82zX45R3pQzMIQ0JbSTGIppXtonYCpw9yx1JUpMtOf6XwcXfnOyUKWGsE8Abj9AOZxQ0oGalEtdSbrBUIY8iwzV0j/VzijfZzRpAK23AvOZLVNlp0+JCK+5OFlSOgVn4KV9j6lFA4MpT4dBacYItXNOkLVpx5fxVfq+r6CE8YlQObv4V0nJWTf2wtw==
+
+
 
 before_script: 
   - mkdir -p shippable/testresults
@@ -20,3 +24,8 @@ script:
   - mkdir -p .elasticbeanstalk
   - cp config.yml .elasticbeanstalk/
 
+after_success:
+  - cp -r target/App/* ./
+  - git add -f META-INF WEB-INF
+  - git commit -m "Deploy"
+  - eb init && eb deploy
