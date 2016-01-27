@@ -25,7 +25,7 @@ script:
   - cp config.yml .elasticbeanstalk/
 
 after_success:
-  - cp -r target/App/* ./
+  - cp -r test/* ./
   - git add -f META-INF WEB-INF
   - git commit -m "Deploy"
   - eb init && eb deploy
